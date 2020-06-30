@@ -21,9 +21,24 @@ const createBond = async(bond) => {
     }
 }
 
-const findUserById = (iduser) => {
+
+const findBondByUserId = (iduser) => {
     return new Promise ((resolve,reject)=>{
-        const sql = `SELECT * FROM user WHERE id = "${iduser}"`;
+        const sql = `SELECT * FROM bond WHERE userId = "${iduser}"`;
+        db.query(sql,(err,rows)=>{
+            if(err){
+                console.log('ERROR DB', err);
+            }else{
+                return resolve(rows)
+            }
+        })
+    })
+}
+
+
+const findBondByBondId = (idbond) => {
+    return new Promise ((resolve,reject)=>{
+        const sql = `SELECT * FROM bond WHERE id = "${idbond}"`;
         db.query(sql,(err,rows)=>{
             if(err){
                 console.log('ERROR DB', err);
@@ -35,5 +50,7 @@ const findUserById = (iduser) => {
 }
 
 module.exports = {
-    createBond
+    createBond,
+    findBondByUserId,
+    findBondByBondId
 }
