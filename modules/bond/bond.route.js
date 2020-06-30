@@ -1,9 +1,8 @@
 const express = require('express');
-const authController = require('./bond.controller');
+const bondController = require('./bond.controller');
 
-const authRouter = express.Router();
+const bondRouter = express.Router();
 
-bondRouter.post('/signup', bondController.createBond);
+bondRouter.post('/create', bondController.createBond);
 
-
-module.exports = authRouter;
+module.exports = bondRouter;

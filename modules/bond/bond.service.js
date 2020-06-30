@@ -1,5 +1,8 @@
+const { db } = require('../../database');
+
 const createBond = async(bond) => {
     try {
+        delete bond.id;
         return new Promise ((resolve,reject)=>{
             const sql = `INSERT INTO bond SET ?`;
             db.query(sql,bond,(err,rows)=>{
@@ -29,4 +32,8 @@ const findUserById = (iduser) => {
             }
         })
     })
+}
+
+module.exports = {
+    createBond
 }
