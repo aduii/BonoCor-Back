@@ -1,7 +1,7 @@
-const createBond = async(bond) => {
+const createBond = async(bonds) => {
     try {
         return new Promise ((resolve,reject)=>{
-            const sql = `INSERT INTO bond SET ?`;
+            const sql = `INSERT INTO bonds SET ?`;
             db.query(sql,bond,(err,rows)=>{
                 if(err){
                     console.log('ERROR DB', err);
@@ -18,9 +18,10 @@ const createBond = async(bond) => {
     }
 }
 
-const findUserById = (iduser) => {
+
+const findBondByUserId = (iduser) => {
     return new Promise ((resolve,reject)=>{
-        const sql = `SELECT * FROM user WHERE id = "${iduser}"`;
+        const sql = `SELECT * FROM bonds WHERE id = "${iduser}"`;
         db.query(sql,(err,rows)=>{
             if(err){
                 console.log('ERROR DB', err);
@@ -30,3 +31,18 @@ const findUserById = (iduser) => {
         })
     })
 }
+
+
+const findBondByBondId = (idbond) => {
+    return new Promise ((resolve,reject)=>{
+        const sql = `SELECT * FROM bonds WHERE id = "${idbond}"`;
+        db.query(sql,(err,rows)=>{
+            if(err){
+                console.log('ERROR DB', err);
+            }else{
+                return resolve(rows)
+            }
+        })
+    })
+}
+//a

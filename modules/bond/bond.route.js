@@ -3,7 +3,8 @@ const authController = require('./bond.controller');
 
 const authRouter = express.Router();
 
-bondRouter.post('/signup', bondController.createBond);
+bondRouter.post('/bond', bondController.createBond);
+bondRouter.get('/bond', bondController.findBondByUserId);
+bondRouter.get('/bond', bondController.findBondByBondId);
 
-
-module.exports = authRouter;
+module.exports = bondRouter;
