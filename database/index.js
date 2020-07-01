@@ -3,11 +3,11 @@ require('dotenv').config();
 
 connection = mysql.createPoolCluster();
 connection.add("MASTER", {
-    host: process.env.DATABASE_HOST,
-    port: process.env.DATABASE_PORT,
-    user: process.env.DATABASE_USER,
-    password: process.env.DATABASE_PASSWORD,
-    database: process.env.DATABASE
+    host: "dbfinanzas.ccqmzlyj15td.us-east-1.rds.amazonaws.com",
+    port: 3306,
+    user: "admin",
+    password: "admin123",
+    database: "bonocorp"
 });
 
 module.exports ={
